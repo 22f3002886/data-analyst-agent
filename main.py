@@ -22,3 +22,8 @@ async def analyze(file: UploadFile = File(...)):
 
     # Fallback for unsupported tasks (optional)
     return {"error": f"Unsupported task type: {task_type}"}
+
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome! Your Data Analyst Agent is live 🚀"}
