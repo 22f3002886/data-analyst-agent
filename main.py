@@ -27,3 +27,8 @@ async def analyze(file: UploadFile = File(...)):
 @app.get("/")
 def read_root():
     return {"message": "Welcome! Your Data Analyst Agent is live 🚀"}
+
+from fastapi.openapi.docs import get_swagger_ui_html
+@app.get("/docs", include_in_schema=False)
+async def custom_swagger_ui_html():
+    return get_swagger_ui_html(openapi_url="/openapi.json", title="Data Analyst Agent Docs")
